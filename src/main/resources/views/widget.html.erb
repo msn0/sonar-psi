@@ -1,0 +1,16 @@
+<div class="dashbox">
+    <h3>
+        <span title="<%= metric('webquality').description -%>">
+          <%= metric('webquality').description -%>
+        </span>
+    </h3>
+
+    <p>
+    <span class="big">
+        <% webquality=measure('webquality') %>
+        <%= format_measure(webquality) -%>
+    </span>
+        / 100
+        <%= trend_icon(webquality) %>
+    </p>
+</div>

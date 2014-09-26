@@ -7,7 +7,7 @@ import org.sonar.api.web.UserRole;
 import org.sonar.api.web.WidgetCategory;
 
 @UserRole(UserRole.USER)
-@Description("Web Quality Widget")
+@Description("PageSpeed Insights")
 @WidgetCategory("Web Quality")
 public class RubyWidget extends AbstractRubyTemplate implements RubyRailsWidget {
 
@@ -16,7 +16,7 @@ public class RubyWidget extends AbstractRubyTemplate implements RubyRailsWidget 
     }
 
     public String getTitle() {
-        return "Page Speed Index (PSI) Widget";
+        return "PageSpeed Insights (PSI) Widget";
     }
 
     @Override

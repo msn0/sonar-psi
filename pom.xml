@@ -19,6 +19,12 @@
 
   <dependencies>
     <dependency>
+        <groupId>org.apache.clerezza.ext</groupId>
+        <artifactId>org.json.simple</artifactId>
+        <version>0.4</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.codehaus.sonar</groupId>
       <artifactId>sonar-plugin-api</artifactId>
       <version>${sonar.buildVersion}</version>

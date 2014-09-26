@@ -2,12 +2,16 @@ package com.github.msn0.sonar.quality.batch;
 
 import com.github.msn0.sonar.quality.WebQualityMetric;
 import com.github.msn0.sonar.quality.WebQualityPlugin;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.sonar.api.batch.Sensor;
 import org.sonar.api.batch.SensorContext;
 import org.sonar.api.config.Settings;
 import org.sonar.api.resources.Project;
+
+import java.io.FileReader;
 
 public class PsiSensor implements Sensor {
 
@@ -24,9 +28,21 @@ public class PsiSensor implements Sensor {
     }
 
     public void analyse(Project project, SensorContext sensorContext) {
-        String value = settings.getString(WebQualityPlugin.PSI_REPORT_PATH);
-        LOG.info(WebQualityPlugin.PSI_REPORT_PATH + "=" + value);
-        sensorContext.saveMeasure(WebQualityMetric.PSI, Math.random() * 100);
+        String reportPath = settings.getString(WebQualityPlugin.PSI_REPORT_PATH);
+        LOG.info("Attempt to analyse " + WebQualityPlugin.PSI_REPORT_PATH + "=" + reportPath);
+
+        JSONParser parser = new JSONParser();
+        Long measuredValue = 0l;
+        try {
+            Object json = parser.parse(new FileReader(reportPath));
+            JSONObject jsonObject = (JSONObject) json;
+            measuredValue = (Long) jsonObject.get("value");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        sensorContext.saveMeasure(WebQualityMetric.PSI, Double.valueOf(measuredValue));
     }
 
     @Override

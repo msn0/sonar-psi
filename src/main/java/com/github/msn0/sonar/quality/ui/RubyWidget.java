@@ -12,11 +12,11 @@ import org.sonar.api.web.WidgetCategory;
 public class RubyWidget extends AbstractRubyTemplate implements RubyRailsWidget {
 
     public String getId() {
-        return "webquality";
+        return "psi";
     }
 
     public String getTitle() {
-        return "Web Quality Widget";
+        return "Page Speed Index (PSI) Widget";
     }
 
     @Override

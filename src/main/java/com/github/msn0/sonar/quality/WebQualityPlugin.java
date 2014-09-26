@@ -15,7 +15,7 @@ import java.util.List;
                 key = WebQualityPlugin.PSI_REPORT_PATH,
                 name = "Plugin Property",
                 description = "A property for the plugin",
-                defaultValue = "Hello World!")})
+                defaultValue = "target/reports/psi.json")})
 public final class WebQualityPlugin extends SonarPlugin {
 
     public static final String PSI_REPORT_PATH = "sonar.webquality.psi.report";

@@ -13,8 +13,8 @@ import java.util.List;
 @Properties({
         @Property(
                 key = WebQualityPlugin.PSI_REPORT_PATH,
-                name = "Plugin Property",
-                description = "A property for the plugin",
+                name = "PSI report path",
+                description = "A path to psi.json",
                 defaultValue = "target/reports/psi.json")})
 public final class WebQualityPlugin extends SonarPlugin {
 

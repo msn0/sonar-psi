@@ -22,7 +22,7 @@ public final class WebQualityPlugin extends SonarPlugin {
 
     public List getExtensions() {
         return Arrays.asList(
-                WebQualityMetric.class,
+                WebQualityMetrics.class,
                 PsiSensor.class,
                 WidgetFooter.class,
                 RubyWidget.class

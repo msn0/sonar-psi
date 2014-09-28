@@ -1,16 +1,16 @@
 <div class="dashbox">
     <h3>
-        <span title="<%= metric('psi').description -%>">
-          <%= metric('psi').description -%>
+        <span title="<%= metric('score').description -%>">
+          <%= metric('score').description -%>
         </span>
     </h3>
 
     <p>
     <span class="big">
-        <% psi=measure('psi') %>
-        <%= format_measure(psi) -%>
+        <% score=measure('score') %>
+        <%= format_measure(score) -%>
     </span>
         / 100
-        <%= trend_icon(psi) %>
+        <%= trend_icon(score) %>
     </p>
 </div>

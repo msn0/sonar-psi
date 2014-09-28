@@ -1,6 +1,6 @@
 package com.github.msn0.sonar.quality.batch;
 
-import com.github.msn0.sonar.quality.WebQualityMetric;
+import com.github.msn0.sonar.quality.WebQualityMetrics;
 import com.github.msn0.sonar.quality.WebQualityPlugin;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -42,7 +42,7 @@ public class PsiSensor implements Sensor {
             e.printStackTrace();
         }
 
-        sensorContext.saveMeasure(WebQualityMetric.PSI, Double.valueOf(measuredValue));
+        sensorContext.saveMeasure(WebQualityMetrics.SCORE, Double.valueOf(measuredValue));
     }
 
     @Override

@@ -30,19 +30,16 @@ public class PsiSensor implements Sensor {
     public void analyse(Project project, SensorContext sensorContext) {
         String reportPath = settings.getString(WebQualityPlugin.PSI_REPORT_PATH);
         LOG.info("Attempt to analyse " + WebQualityPlugin.PSI_REPORT_PATH + "=" + reportPath);
-
         JSONParser parser = new JSONParser();
-        Long measuredValue = 0l;
         try {
             Object json = parser.parse(new FileReader(reportPath));
             JSONObject jsonObject = (JSONObject) json;
-            measuredValue = (Long) jsonObject.get("value");
+            sensorContext.saveMeasure(WebQualityMetrics.SCORE, Double.valueOf((Long) jsonObject.get("score")));
+            sensorContext.saveMeasure(WebQualityMetrics.HTML_SIZE, Double.valueOf((Double) jsonObject.get("html-size")));
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        sensorContext.saveMeasure(WebQualityMetrics.SCORE, Double.valueOf(measuredValue));
     }
 
     @Override

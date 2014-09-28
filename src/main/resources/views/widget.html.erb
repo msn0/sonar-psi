@@ -13,4 +13,12 @@
         / 100
         <%= trend_icon(score) %>
     </p>
+
+    <p>
+    <span class="big">
+        <% htmlSize=measure('html-size') %>
+        <%= format_measure(htmlSize) -%>
+    </span>
+        <%= trend_icon(htmlSize) %>
+    </p>
 </div>

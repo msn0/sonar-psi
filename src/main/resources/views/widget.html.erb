@@ -1,25 +1,32 @@
+<% score=measure('score') %>
+<% htmlSize=measure('html-size') %>
+
 <div class="dashbox">
+    <style>
+      .dashbox-label {
+        width: 100px;
+        display: inline-block;
+      }
+
+      .dashbox-value {
+        display: inline-block;
+      }
+    </style>
     <h3>
-        <span title="<%= metric('score').description -%>">
-          <%= metric('score').description -%>
-        </span>
+        PageSpeed Insights (PSI)
     </h3>
 
-    <p>
-    <span class="big">
-        <% score=measure('score') %>
-        <%= format_measure(score) -%>
-    </span>
-        / 100
-        <%= trend_icon(score) %>
-    </p>
+    <div>
+        <div class="dashbox-label">Score:</div>
+        <div class="dashbox-value">
+            <span class="big"><%= format_measure(score) -%></span> / 100 <%= trend_icon(score) %>
+        </div>
+    </div>
 
-    <p>
-    <span class="big">
-        <% htmlSize=measure('html-size') %>
-        <%= format_measure(htmlSize) -%>
-    </span>
-        kB
-        <%= trend_icon(htmlSize) %>
-    </p>
+    <div>
+        <div class="dashbox-label">HTML size:</div>
+        <div class="dashbox-value">
+            <span class="big"><%= format_measure(htmlSize) -%></span> kB <%= trend_icon(htmlSize) %>
+        </div>
+    </div>
 </div>

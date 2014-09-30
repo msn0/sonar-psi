@@ -1,4 +1,4 @@
-# sonar PSI plugin
+# sonar-psi
 
 Sonar PageSpeed Insights plugin.
 

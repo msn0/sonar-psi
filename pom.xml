@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.github.msn0.sonar</groupId>
-  <artifactId>quality</artifactId>
+  <artifactId>sonar-psi</artifactId>
   <packaging>sonar-plugin</packaging>
   <version>0.1-SNAPSHOT</version>
 

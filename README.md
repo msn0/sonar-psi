@@ -6,6 +6,6 @@ Sonar PageSpeed Insights plugin.
 
 ```
 mvn clean install
-cp target/quality-0.1-SNAPSHOT.jar /path/to/sonarqube/extensions/plugins/
+cp target/sonar-psi-0.1-SNAPSHOT.jar /path/to/sonarqube/extensions/plugins/
 sonar restart
 ```

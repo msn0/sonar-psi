@@ -1,5 +1,5 @@
 <% score=measure('score') %>
-<% htmlSize=measure('html-size') %>
+<% htmlResponse=measure('html-response') %>
 
 <div class="dashbox">
     <style>
@@ -24,9 +24,9 @@
     </div>
 
     <div>
-        <div class="dashbox-label">HTML size:</div>
+        <div class="dashbox-label">HTML Response:</div>
         <div class="dashbox-value">
-            <span class="big"><%= format_measure(htmlSize) -%></span> kB <%= trend_icon(htmlSize) %>
+            <span class="big"><%= format_measure(htmlResponse) -%></span> kB <%= trend_icon(htmlResponse) %>
         </div>
     </div>
 </div>

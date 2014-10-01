@@ -18,14 +18,14 @@ public final class WebQualityMetrics implements Metrics {
             .setWorstValue(0d)
             .create();
 
-    public static final Metric HTML_SIZE = new Metric.Builder("html-size", "HTML size in kB", Metric.ValueType.FLOAT)
-            .setDescription("HTML size in kB")
+    public static final Metric HTML_RESPONSE = new Metric.Builder("html-response", "HTML response size in kB", Metric.ValueType.FLOAT)
+            .setDescription("HTML response size in kB")
             .setDirection(Metric.DIRECTION_WORST)
             .setQualitative(false)
             .setDomain(CoreMetrics.DOMAIN_GENERAL)
             .create();
 
     public List<Metric> getMetrics() {
-        return Arrays.asList(SCORE, HTML_SIZE);
+        return Arrays.asList(SCORE, HTML_RESPONSE);
     }
 }

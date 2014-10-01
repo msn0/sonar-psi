@@ -35,7 +35,7 @@ public class PsiSensor implements Sensor {
             Object json = parser.parse(new FileReader(reportPath));
             JSONObject jsonObject = (JSONObject) json;
             sensorContext.saveMeasure(WebQualityMetrics.SCORE, Double.valueOf((Long) jsonObject.get("score")));
-            sensorContext.saveMeasure(WebQualityMetrics.HTML_SIZE, Double.valueOf((Double) jsonObject.get("html-size")));
+            sensorContext.saveMeasure(WebQualityMetrics.HTML_RESPONSE, Double.valueOf((Double) jsonObject.get("html-size")));
 
         } catch (Exception e) {
             e.printStackTrace();

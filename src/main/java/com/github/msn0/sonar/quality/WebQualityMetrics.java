@@ -25,7 +25,14 @@ public final class WebQualityMetrics implements Metrics {
             .setDomain(CoreMetrics.DOMAIN_GENERAL)
             .create();
 
+    public static final Metric CSS_RESPONSE = new Metric.Builder("css-response", "CSS response size in kB", Metric.ValueType.FLOAT)
+            .setDescription("CSS response size in kB")
+            .setDirection(Metric.DIRECTION_WORST)
+            .setQualitative(false)
+            .setDomain(CoreMetrics.DOMAIN_GENERAL)
+            .create();
+
     public List<Metric> getMetrics() {
-        return Arrays.asList(SCORE, HTML_RESPONSE);
+        return Arrays.asList(SCORE, HTML_RESPONSE, CSS_RESPONSE);
     }
 }

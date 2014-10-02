@@ -32,7 +32,14 @@ public final class WebQualityMetrics implements Metrics {
             .setDomain(CoreMetrics.DOMAIN_GENERAL)
             .create();
 
+    public static final Metric JAVASCRIPT_RESPONSE = new Metric.Builder("javascript-response", "Javascript response size in kB", Metric.ValueType.FLOAT)
+            .setDescription("Javascript response size in kB")
+            .setDirection(Metric.DIRECTION_WORST)
+            .setQualitative(false)
+            .setDomain(CoreMetrics.DOMAIN_GENERAL)
+            .create();
+
     public List<Metric> getMetrics() {
-        return Arrays.asList(SCORE, HTML_RESPONSE, CSS_RESPONSE);
+        return Arrays.asList(SCORE, HTML_RESPONSE, CSS_RESPONSE, JAVASCRIPT_RESPONSE);
     }
 }

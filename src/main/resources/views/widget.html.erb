@@ -2,7 +2,7 @@
 <% htmlResponse=measure('html-response') %>
 <% cssResponse=measure('css-response') %>
 <% javascriptResponse=measure('javascript-response') %>
-<% numberResources=measure('numberResource') %>
+<% numberResources=measure('number-resources') %>
 
 <div class="dashbox">
     <style>
@@ -50,7 +50,7 @@
     <div>
         <div class="dashbox-label">Resources:</div>
         <div class="dashbox-value">
-            <span><%= format_measure(numberResources) -%></span> bytes <%= trend_icon(numberResources) %>
+            <span><%= format_measure(numberResources) -%></span> <%= trend_icon(numberResources) %>
         </div>
     </div>
 </div>

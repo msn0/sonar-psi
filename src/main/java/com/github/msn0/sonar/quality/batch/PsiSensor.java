@@ -38,6 +38,7 @@ public class PsiSensor implements Sensor {
             sensorContext.saveMeasure(WebQualityMetrics.HTML_RESPONSE, Double.valueOf((Double) jsonObject.get("html-response")));
             sensorContext.saveMeasure(WebQualityMetrics.CSS_RESPONSE, Double.valueOf((Double) jsonObject.get("css-response")));
             sensorContext.saveMeasure(WebQualityMetrics.JAVASCRIPT_RESPONSE, Double.valueOf((Double) jsonObject.get("javascript-response")));
+            sensorContext.saveMeasure(WebQualityMetrics.NUMBER_RESOURCES, Double.valueOf((Double) getPageStats(jsonObject).get("numberResources")));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -47,6 +48,10 @@ public class PsiSensor implements Sensor {
     @Override
     public String toString() {
         return getClass().getSimpleName();
+    }
+
+    private JSONObject getPageStats (JSONObject jsonObject) {
+        return (JSONObject) jsonObject.get("pageStats");
     }
 
 }

@@ -2,6 +2,7 @@
 <% htmlResponse=measure('html-response') %>
 <% cssResponse=measure('css-response') %>
 <% javascriptResponse=measure('javascript-response') %>
+<% numberResources=measure('numberResource') %>
 
 <div class="dashbox">
     <style>
@@ -43,6 +44,13 @@
         <div class="dashbox-label">Javascript Response:</div>
         <div class="dashbox-value">
             <span class="big"><%= format_measure(javascriptResponse) -%></span> kB <%= trend_icon(javascriptResponse) %>
+        </div>
+    </div>
+
+    <div>
+        <div class="dashbox-label">Resources:</div>
+        <div class="dashbox-value">
+            <span class="big"><%= format_measure(numberResources) -%></span> kB <%= trend_icon(numberResources) %>
         </div>
     </div>
 </div>

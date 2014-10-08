@@ -34,11 +34,19 @@ public class PsiSensor implements Sensor {
         try {
             Object json = parser.parse(new FileReader(reportPath));
             JSONObject jsonObject = (JSONObject) json;
-            sensorContext.saveMeasure(WebQualityMetrics.SCORE, Double.valueOf((Long) jsonObject.get("score")));
-            sensorContext.saveMeasure(WebQualityMetrics.HTML_RESPONSE, Double.valueOf((Double) jsonObject.get("html-response")));
-            sensorContext.saveMeasure(WebQualityMetrics.CSS_RESPONSE, Double.valueOf((Double) jsonObject.get("css-response")));
-            sensorContext.saveMeasure(WebQualityMetrics.JAVASCRIPT_RESPONSE, Double.valueOf((Double) jsonObject.get("javascript-response")));
-            sensorContext.saveMeasure(WebQualityMetrics.NUMBER_RESOURCES, Double.valueOf((Double) getPageStats(jsonObject).get("numberResources")));
+
+            LOG.debug("Analysis of " + jsonObject);
+
+            sensorContext.saveMeasure(WebQualityMetrics.SCORE,
+                    Double.valueOf((Long) jsonObject.get("score")));
+            sensorContext.saveMeasure(WebQualityMetrics.HTML_RESPONSE,
+                    Double.valueOf((String) getPageStats(jsonObject).get("htmlResponseBytes")));
+            sensorContext.saveMeasure(WebQualityMetrics.CSS_RESPONSE,
+                    Double.valueOf((String) getPageStats(jsonObject).get("cssResponseBytes")));
+            sensorContext.saveMeasure(WebQualityMetrics.JAVASCRIPT_RESPONSE,
+                    Double.valueOf((String) getPageStats(jsonObject).get("javascriptResponseBytes")));
+            sensorContext.saveMeasure(WebQualityMetrics.NUMBER_RESOURCES,
+                    Double.valueOf((Long) getPageStats(jsonObject).get("numberResources")));
 
         } catch (Exception e) {
             e.printStackTrace();

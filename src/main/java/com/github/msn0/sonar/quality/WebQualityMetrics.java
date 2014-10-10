@@ -46,13 +46,21 @@ public final class WebQualityMetrics implements Metrics {
             .setDomain(CoreMetrics.DOMAIN_GENERAL)
             .create();
 
+    public static final Metric NUMBER_HOSTS = new Metric.Builder("number-hosts", "Number of hosts", Metric.ValueType.INT)
+            .setDescription("Number of hosts")
+            .setDirection(Metric.DIRECTION_WORST)
+            .setQualitative(true)
+            .setDomain(CoreMetrics.DOMAIN_GENERAL)
+            .create();
+
     public List<Metric> getMetrics() {
         return Arrays.asList(
                 SCORE,
                 HTML_RESPONSE,
                 CSS_RESPONSE,
                 JAVASCRIPT_RESPONSE,
-                NUMBER_RESOURCES
+                NUMBER_RESOURCES,
+                NUMBER_HOSTS
         );
     }
 }

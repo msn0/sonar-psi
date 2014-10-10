@@ -4,6 +4,7 @@
 <% javascriptResponse=measure('javascript-response') %>
 <% numberResources=measure('number-resources') %>
 <% numberHosts=measure('number-hosts') %>
+<% numberStaticResources=measure('number-static-resources') %>
 
 <div class="dashbox">
     <style>
@@ -59,6 +60,13 @@
         <div class="dashbox-label">Hosts:</div>
         <div class="dashbox-value">
             <span><%= format_measure(numberHosts) -%></span> <%= trend_icon(numberHosts) %>
+        </div>
+    </div>
+
+    <div>
+        <div class="dashbox-label">Static Resources:</div>
+        <div class="dashbox-value">
+            <span><%= format_measure(numberStaticResources) -%></span> <%= trend_icon(numberStaticResources) %>
         </div>
     </div>
 </div>

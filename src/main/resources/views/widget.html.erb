@@ -5,6 +5,7 @@
 <% numberResources=measure('number-resources') %>
 <% numberHosts=measure('number-hosts') %>
 <% numberStaticResources=measure('number-static-resources') %>
+<% imageResponseBytes=measure('image-response-bytes') %>
 
 <div class="dashbox">
     <style>
@@ -67,6 +68,13 @@
         <div class="dashbox-label">Static Resources:</div>
         <div class="dashbox-value">
             <span><%= format_measure(numberStaticResources) -%></span> <%= trend_icon(numberStaticResources) %>
+        </div>
+    </div>
+
+    <div>
+        <div class="dashbox-label">Image Response:</div>
+        <div class="dashbox-value">
+            <span><%= format_measure(imageResponseBytes) -%></span> bytes <%= trend_icon(imageResponseBytes) %>
         </div>
     </div>
 </div>

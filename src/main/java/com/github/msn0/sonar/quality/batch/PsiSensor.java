@@ -39,20 +39,22 @@ public class PsiSensor implements Sensor {
 
             sensorContext.saveMeasure(WebQualityMetrics.SCORE,
                     Double.valueOf((Long) jsonObject.get("score")));
-            sensorContext.saveMeasure(WebQualityMetrics.HTML_RESPONSE,
+
+            sensorContext.saveMeasure(WebQualityMetrics.HTML_RESPONSE_BYTES,
                     Double.valueOf((String) getPageStats(jsonObject).get("htmlResponseBytes")));
-            sensorContext.saveMeasure(WebQualityMetrics.CSS_RESPONSE,
+            sensorContext.saveMeasure(WebQualityMetrics.CSS_RESPONSE_BYTES,
                     Double.valueOf((String) getPageStats(jsonObject).get("cssResponseBytes")));
-            sensorContext.saveMeasure(WebQualityMetrics.JAVASCRIPT_RESPONSE,
+            sensorContext.saveMeasure(WebQualityMetrics.IMAGE_RESPONSE_BYTES,
+                    Double.valueOf((String) getPageStats(jsonObject).get("imageResponseBytes")));
+            sensorContext.saveMeasure(WebQualityMetrics.JAVASCRIPT_RESPONSE_BYTES,
                     Double.valueOf((String) getPageStats(jsonObject).get("javascriptResponseBytes")));
+
             sensorContext.saveMeasure(WebQualityMetrics.NUMBER_RESOURCES,
                     Double.valueOf((Long) getPageStats(jsonObject).get("numberResources")));
             sensorContext.saveMeasure(WebQualityMetrics.NUMBER_HOSTS,
                     Double.valueOf((Long) getPageStats(jsonObject).get("numberHosts")));
             sensorContext.saveMeasure(WebQualityMetrics.NUMBER_STATIC_RESOURCES,
                     Double.valueOf((Long) getPageStats(jsonObject).get("numberStaticResources")));
-            sensorContext.saveMeasure(WebQualityMetrics.IMAGE_RESPONSE_BYTES,
-                    Double.valueOf((String) getPageStats(jsonObject).get("imageResponseBytes")));
 
         } catch (Exception e) {
             e.printStackTrace();

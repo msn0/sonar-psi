@@ -18,24 +18,31 @@ public final class WebQualityMetrics implements Metrics {
             .setWorstValue(0d)
             .create();
 
-    public static final Metric HTML_RESPONSE = new Metric.Builder("html-response", "HTML response size in kB", Metric.ValueType.FLOAT)
+    public static final Metric HTML_RESPONSE_BYTES = new Metric.Builder("html-response", "HTML response size in kB", Metric.ValueType.FLOAT)
             .setDescription("HTML response size in kB")
             .setDirection(Metric.DIRECTION_WORST)
             .setQualitative(false)
             .setDomain(CoreMetrics.DOMAIN_GENERAL)
             .create();
 
-    public static final Metric CSS_RESPONSE = new Metric.Builder("css-response", "CSS response size in kB", Metric.ValueType.FLOAT)
+    public static final Metric CSS_RESPONSE_BYTES = new Metric.Builder("css-response", "CSS response size in kB", Metric.ValueType.FLOAT)
             .setDescription("CSS response size in kB")
             .setDirection(Metric.DIRECTION_WORST)
             .setQualitative(false)
             .setDomain(CoreMetrics.DOMAIN_GENERAL)
             .create();
 
-    public static final Metric JAVASCRIPT_RESPONSE = new Metric.Builder("javascript-response", "Javascript response size in kB", Metric.ValueType.FLOAT)
+    public static final Metric JAVASCRIPT_RESPONSE_BYTES = new Metric.Builder("javascript-response", "Javascript response size in kB", Metric.ValueType.FLOAT)
             .setDescription("Javascript response size in kB")
             .setDirection(Metric.DIRECTION_WORST)
             .setQualitative(false)
+            .setDomain(CoreMetrics.DOMAIN_GENERAL)
+            .create();
+
+    public static final Metric IMAGE_RESPONSE_BYTES = new Metric.Builder("image-response-bytes", "Image response bytes", Metric.ValueType.INT)
+            .setDescription("Image response bytes")
+            .setDirection(Metric.DIRECTION_WORST)
+            .setQualitative(true)
             .setDomain(CoreMetrics.DOMAIN_GENERAL)
             .create();
 
@@ -60,19 +67,12 @@ public final class WebQualityMetrics implements Metrics {
             .setDomain(CoreMetrics.DOMAIN_GENERAL)
             .create();
 
-    public static final Metric IMAGE_RESPONSE_BYTES = new Metric.Builder("image-response-bytes", "Image response bytes", Metric.ValueType.INT)
-            .setDescription("Image response bytes")
-            .setDirection(Metric.DIRECTION_WORST)
-            .setQualitative(true)
-            .setDomain(CoreMetrics.DOMAIN_GENERAL)
-            .create();
-
     public List<Metric> getMetrics() {
         return Arrays.asList(
                 SCORE,
-                HTML_RESPONSE,
-                CSS_RESPONSE,
-                JAVASCRIPT_RESPONSE,
+                HTML_RESPONSE_BYTES,
+                CSS_RESPONSE_BYTES,
+                JAVASCRIPT_RESPONSE_BYTES,
                 NUMBER_RESOURCES,
                 NUMBER_HOSTS,
                 NUMBER_STATIC_RESOURCES,

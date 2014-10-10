@@ -60,6 +60,13 @@ public final class WebQualityMetrics implements Metrics {
             .setDomain(CoreMetrics.DOMAIN_GENERAL)
             .create();
 
+    public static final Metric IMAGE_RESPONSE_BYTES = new Metric.Builder("image-response-bytes", "Image response bytes", Metric.ValueType.INT)
+            .setDescription("Image response bytes")
+            .setDirection(Metric.DIRECTION_WORST)
+            .setQualitative(true)
+            .setDomain(CoreMetrics.DOMAIN_GENERAL)
+            .create();
+
     public List<Metric> getMetrics() {
         return Arrays.asList(
                 SCORE,
@@ -68,7 +75,8 @@ public final class WebQualityMetrics implements Metrics {
                 JAVASCRIPT_RESPONSE,
                 NUMBER_RESOURCES,
                 NUMBER_HOSTS,
-                NUMBER_STATIC_RESOURCES
+                NUMBER_STATIC_RESOURCES,
+                IMAGE_RESPONSE_BYTES
         );
     }
 }

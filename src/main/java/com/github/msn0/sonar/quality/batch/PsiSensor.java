@@ -47,6 +47,8 @@ public class PsiSensor implements Sensor {
                     Double.valueOf((String) getPageStats(jsonObject).get("javascriptResponseBytes")));
             sensorContext.saveMeasure(WebQualityMetrics.NUMBER_RESOURCES,
                     Double.valueOf((Long) getPageStats(jsonObject).get("numberResources")));
+            sensorContext.saveMeasure(WebQualityMetrics.NUMBER_HOSTS,
+                    Double.valueOf((Long) getPageStats(jsonObject).get("numberHosts")));
 
         } catch (Exception e) {
             e.printStackTrace();

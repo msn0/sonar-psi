@@ -74,6 +74,13 @@ public final class WebQualityMetrics implements Metrics {
             .setDomain(CoreMetrics.DOMAIN_GENERAL)
             .create();
 
+    public static final Metric NUMBER_JS_RESOURCES = new Metric.Builder("number-js-resources", "Number of js resources", Metric.ValueType.INT)
+            .setDescription("Number of js resources")
+            .setDirection(Metric.DIRECTION_WORST)
+            .setQualitative(true)
+            .setDomain(CoreMetrics.DOMAIN_GENERAL)
+            .create();
+
     public List<Metric> getMetrics() {
         return Arrays.asList(
                 SCORE,
@@ -84,7 +91,8 @@ public final class WebQualityMetrics implements Metrics {
                 NUMBER_HOSTS,
                 NUMBER_STATIC_RESOURCES,
                 IMAGE_RESPONSE_BYTES,
-                OTHER_RESPONSE_BYTES
+                OTHER_RESPONSE_BYTES,
+                NUMBER_JS_RESOURCES
         );
     }
 }

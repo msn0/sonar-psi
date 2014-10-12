@@ -46,6 +46,13 @@ public final class WebQualityMetrics implements Metrics {
             .setDomain(CoreMetrics.DOMAIN_GENERAL)
             .create();
 
+    public static final Metric OTHER_RESPONSE_BYTES = new Metric.Builder("other-response-bytes", "Other response bytes", Metric.ValueType.INT)
+            .setDescription("Other response bytes")
+            .setDirection(Metric.DIRECTION_WORST)
+            .setQualitative(true)
+            .setDomain(CoreMetrics.DOMAIN_GENERAL)
+            .create();
+
     public static final Metric NUMBER_RESOURCES = new Metric.Builder("number-resources", "Number of resources", Metric.ValueType.INT)
             .setDescription("Number of resources")
             .setDirection(Metric.DIRECTION_WORST)
@@ -76,7 +83,8 @@ public final class WebQualityMetrics implements Metrics {
                 NUMBER_RESOURCES,
                 NUMBER_HOSTS,
                 NUMBER_STATIC_RESOURCES,
-                IMAGE_RESPONSE_BYTES
+                IMAGE_RESPONSE_BYTES,
+                OTHER_RESPONSE_BYTES
         );
     }
 }

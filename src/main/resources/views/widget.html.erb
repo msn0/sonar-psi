@@ -11,8 +11,8 @@
 <% numberJsResources=measure('number-js-resources') %>
 <% numberCssResources=measure('number-css-resources') %>
 
-<div class="dashbox">
-    <style>
+<div class="dashbox dashbox-psi">
+    <style scoped>
       .dashbox-label {
         width: 140px;
         display: inline-block;
@@ -21,89 +21,103 @@
       .dashbox-value {
         display: inline-block;
       }
+
+      .dashbox-row {
+        display: none;
+      }
+
+      .dashbox-row:first-of-type {
+        display: block;
+        margin-top: 5px;
+      }
+
+      .dashbox-psi {
+        padding: 0;
+      }
     </style>
     <h3>
         PageSpeed Insights (PSI)
     </h3>
 
     <div>
-        <div class="dashbox-label">Score:</div>
-        <div class="dashbox-value">
-            <span class="big"><%= format_measure(score) -%></span> / 100 <%= trend_icon(score) %>
-        </div>
+        <span class="big">
+            <a class="psi-details" href="javascript:void(0)">
+                <%= format_measure(score) -%>
+            </a>
+        </span> / 100 <%= trend_icon(score) %>
     </div>
 
-    <div>
+    <div class="dashbox-row">
         <div class="dashbox-label">HTML Response:</div>
         <div class="dashbox-value">
             <span><%= format_measure(htmlResponse) -%></span> bytes <%= trend_icon(htmlResponse) %>
         </div>
     </div>
 
-    <div>
+    <div class="dashbox-row">
         <div class="dashbox-label">CSS Response:</div>
         <div class="dashbox-value">
             <span><%= format_measure(cssResponse) -%></span> bytes <%= trend_icon(cssResponse) %>
         </div>
     </div>
 
-    <div>
+    <div class="dashbox-row">
         <div class="dashbox-label">Javascript Response:</div>
         <div class="dashbox-value">
             <span><%= format_measure(javascriptResponse) -%></span> bytes <%= trend_icon(javascriptResponse) %>
         </div>
     </div>
 
-    <div>
+    <div class="dashbox-row">
         <div class="dashbox-label">Resources:</div>
         <div class="dashbox-value">
             <span><%= format_measure(numberResources) -%></span> <%= trend_icon(numberResources) %>
         </div>
     </div>
 
-    <div>
+    <div class="dashbox-row">
         <div class="dashbox-label">Hosts:</div>
         <div class="dashbox-value">
             <span><%= format_measure(numberHosts) -%></span> <%= trend_icon(numberHosts) %>
         </div>
     </div>
 
-    <div>
+    <div class="dashbox-row">
         <div class="dashbox-label">Static Resources:</div>
         <div class="dashbox-value">
             <span><%= format_measure(numberStaticResources) -%></span> <%= trend_icon(numberStaticResources) %>
         </div>
     </div>
 
-    <div>
+    <div class="dashbox-row">
         <div class="dashbox-label">Image Response:</div>
         <div class="dashbox-value">
             <span><%= format_measure(imageResponseBytes) -%></span> bytes <%= trend_icon(imageResponseBytes) %>
         </div>
     </div>
 
-    <div>
+    <div class="dashbox-row">
         <div class="dashbox-label">Other Response:</div>
         <div class="dashbox-value">
             <span><%= format_measure(otherResponseBytes) -%></span> bytes <%= trend_icon(otherResponseBytes) %>
         </div>
     </div>
 
-    <div>
+    <div class="dashbox-row">
         <div class="dashbox-label">Total request:</div>
         <div class="dashbox-value">
             <span><%= format_measure(totalRequestBytes) -%></span> bytes <%= trend_icon(totalRequestBytes) %>
         </div>
     </div>
 
-    <div>
+    <div class="dashbox-row">
         <div class="dashbox-label">Javascript Resources:</div>
         <div class="dashbox-value">
             <span><%= format_measure(numberJsResources) -%></span> <%= trend_icon(numberJsResources) %>
         </div>
     </div>
 
-    <div>
+    <div class="dashbox-row">
         <div class="dashbox-label">Css Resources:</div>
         <div class="dashbox-value">
             <span><%= format_measure(numberCssResources) -%></span> <%= trend_icon(numberCssResources) %>
@@ -111,3 +125,9 @@
     </div>
 
 </div>
+
+<script>
+  jQuery(".psi-details").on("click", function () {
+    jQuery(".dashbox-psi").find(".dashbox-row").toggle();
+  });
+</script>

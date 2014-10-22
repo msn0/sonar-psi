@@ -8,7 +8,7 @@ import org.sonar.api.web.WidgetCategory;
 
 @UserRole(UserRole.USER)
 @Description("PageSpeed Insights")
-@WidgetCategory("Web Quality")
+@WidgetCategory("Web")
 public class RubyWidget extends AbstractRubyTemplate implements RubyRailsWidget {
 
     public String getId() {

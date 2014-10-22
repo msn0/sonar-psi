@@ -2,7 +2,9 @@
 
 Sonar PageSpeed Insights plugin.
 
-![PSI Plugin](screenshot.png)
+![basic view](screenshot-1.png)
+
+![detailed view](screenshot-2.png)
 
 ## How to install?
 
